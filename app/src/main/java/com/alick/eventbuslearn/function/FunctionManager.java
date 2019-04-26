@@ -55,7 +55,7 @@ public class FunctionManager {
     }
 
 
-    public void invokeFunctionNoResultNoParam(String functionName) {
+    public void invokeFunction(String functionName) {
         FunctionNoResultNoParam function = functionNoResultNoParamMap.get(functionName);
         if (function != null) {
             function.execute();
@@ -64,17 +64,18 @@ public class FunctionManager {
         }
     }
 
-    public <Result> Result invokeFunctionHasResultNo(String functionName) {
+    public <Result> Result invokeFunction(String functionName, Class<Result> resultClass) {
         FunctionHasResultNoParam<Result> function = functionHasResultNoParamMap.get(functionName);
         if (function != null) {
-            return function.execute();
+//            return function.execute();
+            return resultClass.cast(function.execute());
         } else {
             Log.i(TAG, "没找到方法:" + functionName);
             return null;
         }
     }
 
-    public <Param> void invokeFunctionNoResultHasParam(String functionName, Param param) {
+    public <Param> void invokeFunction(String functionName, Param param) {
         FunctionNoResultHasParam<Param> function = functionNoResultHasParamMap.get(functionName);
         if (function != null) {
             function.execute(param);
@@ -83,10 +84,10 @@ public class FunctionManager {
         }
     }
 
-    public <Result, Param> Result invokeFunctionHasResultHasParam(String functionName, Param param) {
+    public <Result, Param> Result invokeFunction(String functionName, Class<Result> resultClass,Param param) {
         FunctionHasResultHasParam<Result, Param> function = functionHasResultHasParamMap.get(functionName);
         if (function != null) {
-            return function.execute(param);
+            return resultClass.cast(function.execute(param));
         } else {
             Log.i(TAG, "没找到方法:" + functionName);
             return null;

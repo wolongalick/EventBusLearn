@@ -34,14 +34,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        FunctionManager.getInstance().registFunction(new FunctionHasResultNoParam<String>(Constant.fun2) {
-            @Override
-            public String execute() {
-                ToastUtil.show(Constant.fun2 + "被调用");
-                return "我是" + Constant.fun2 + "函数返回信息";
-            }
-        });
-
         FunctionManager.getInstance().registFunction(new FunctionNoResultHasParam<String>(Constant.fun3) {
             @Override
             public void execute(String param) {

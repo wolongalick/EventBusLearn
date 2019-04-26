@@ -16,21 +16,21 @@ public class Test1Activity extends AppCompatActivity {
     }
 
     public void invokeFun1(View view) {
-        FunctionManager.getInstance().invokeFunctionNoResultNoParam(Constant.fun1);
+        FunctionManager.getInstance().invokeFunction(Constant.fun1);
     }
 
     public void invokeFun2(View view) {
-        String result = FunctionManager.getInstance().invokeFunctionHasResultNo(Constant.fun2);
-        ToastUtil.show(Constant.fun2+"返回值:"+result);
+        String result = FunctionManager.getInstance().invokeFunction(Constant.fun2, String.class);
+        ToastUtil.show(Constant.fun2 + "返回值:" + result);
     }
 
     public void invokeFun3(View view) {
-        FunctionManager.getInstance().invokeFunctionNoResultHasParam(Constant.fun3,"我是"+Constant.fun3+"的参数");
+        FunctionManager.getInstance().invokeFunction(Constant.fun3, "我是" + Constant.fun3 + "的参数");
     }
 
     public void invokeFun4(View view) {
-        String result = FunctionManager.getInstance().invokeFunctionHasResultHasParam(Constant.fun4, "我是" + Constant.fun4 + "的参数");
-        ToastUtil.show(Constant.fun4+"返回值:"+result);
+        String result = FunctionManager.getInstance().invokeFunction(Constant.fun4, String.class, "我是" + Constant.fun4 + "的参数");
+        ToastUtil.show(Constant.fun4 + "返回值:" + result);
 
     }
 }
