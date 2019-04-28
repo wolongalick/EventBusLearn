@@ -5,19 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".Test2Activity">
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="goTest1"
-        android:text="跳转到Test1Activity(使用非注解非反射实现eventBus)" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="goTest2"
-        android:text="跳转到Test2Activity(使用注解+反射实现eventBus)" />
-
+        android:text="发送eventBus事件"
+        android:onClick="sendEventBus"
+        />
 
 </LinearLayout>
