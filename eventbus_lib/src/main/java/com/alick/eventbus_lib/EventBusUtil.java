@@ -104,7 +104,7 @@ public class EventBusUtil {
 
 
     public void post(Object object) {
-        List<Subscription> subscriptions = subscriptionMap.get(object.getClass().getName());
+        List<Subscription> subscriptions = subscriptionMap.get(object.getClass());
         if(subscriptions!=null){
             for (Subscription subscription:subscriptions) {
                 Object targetObject = subscription.getSubscriber();
