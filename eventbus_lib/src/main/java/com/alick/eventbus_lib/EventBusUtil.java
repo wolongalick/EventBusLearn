@@ -110,7 +110,11 @@ public class EventBusUtil {
                 Object targetObject = subscription.getSubscriber();
                 SubscriberMethod subscriberMethod = subscription.getSubscriberMethod();
                 try {
-                    Object invoke =  subscriberMethod.getMethod().invoke(targetObject, object);
+                    Method method = subscriberMethod.getMethod();
+                    if(!method.isAccessible()){
+                        method.setAccessible(true);
+                    }
+                    Object invoke =  method.invoke(targetObject, object);
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 } catch (InvocationTargetException e) {

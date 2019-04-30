@@ -43,15 +43,15 @@ public class MainActivity extends AppCompatActivity {
         FunctionManager.getInstance().registFunction(new FunctionNoResultHasParam<String>(Constant.fun3) {
             @Override
             public void execute(String param) {
-                ToastUtil.show(Constant.fun3 + "被调用,参数:"+param);
+                ToastUtil.show(Constant.fun3 + "被调用,参数:" + param);
             }
         });
 
         FunctionManager.getInstance().registFunction(new FunctionHasResultHasParam<String, String>(Constant.fun4) {
             @Override
             public String execute(String param) {
-                ToastUtil.show(Constant.fun4 + "被调用,参数:"+param);
-                return "我是" + Constant.fun4 + "函数返回信息,参数:"+param;
+                ToastUtil.show(Constant.fun4 + "被调用,参数:" + param);
+                return "我是" + Constant.fun4 + "函数返回信息,参数:" + param;
             }
         });
 
@@ -67,24 +67,24 @@ public class MainActivity extends AppCompatActivity {
 
 
     @Subscribe(threadMode = ThreadMode.MainThread)
-    public void eventFun1(User user){
+    private void eventFun1(User user) {
         ToastUtil.show(user.toString());
     }
 
     @org.greenrobot.eventbus.Subscribe()
-    public void eventFun2(User user){
+    public void eventFun2(User user) {
         ToastUtil.show(user.toString());
     }
 
-    private void fun1(){
+    private void fun1() {
 
     }
 
-    protected void fun2(){
+    protected void fun2() {
 
     }
 
-    void fun3(){
+    void fun3() {
 
     }
 
